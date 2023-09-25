@@ -1,0 +1,27 @@
+class Stack {
+    private _storage: any[] = [];
+
+    public push(item: any): void {
+        this._storage.push(item);
+    }
+
+    public pop(): any | undefined {
+        return this._storage.pop();
+    }
+
+    public size(): number {
+        return this._storage.length;
+    }
+
+    public clean(): void {
+        this._storage = [];
+    }
+}
+
+let s1 = new Stack();
+console.log(s1.push("bonjour"));
+console.log(s1.push(5));
+console.log(s1.size());
+console.log(s1.pop());
+console.log(s1.clean());
+console.log(s1.size());

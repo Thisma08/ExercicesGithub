@@ -1,0 +1,39 @@
+interface IDataStructure {
+    push:(item: any) => void;
+    pop:() => any | undefined;
+    size:() => number;
+    clean:() => void;
+}
+
+class Queue implements IDataStructure {
+    private _storage: any[] = [];
+
+    push(item: any) {
+        this._storage.push(item);
+    }
+
+    pop() {
+        return this._storage.shift();
+    }
+
+    public getAll(): any[] {
+		return JSON.parse(JSON.stringify(this._storage));
+	
+	}
+
+    clean() {
+        this._storage.splice(0, this.size());
+    }
+
+    size(): number {
+        return this._storage.length;
+    }
+}
+
+let s1 = new Queue();
+console.log(s1.push("bonjour"));
+console.log(s1.push(5));
+console.log(s1.size());
+console.log(s1.pop());
+console.log(s1.clean());
+console.log(s1.size());
